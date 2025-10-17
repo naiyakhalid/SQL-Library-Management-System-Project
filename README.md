@@ -10,7 +10,75 @@ This SQL Library Management System is designed to manage a library’s branches,
 - Analytical queries to find trends and insights.
 
 ## Database Schema                                       
-<img width="1536" height="1024" alt="LMProject_Query sql" src="https://github.com/user-attachments/assets/1ddce50d-f376-4a83-9149-2e13bba6dd5c" />
+          ┌───────────────────────────┐
+          │         Branch            │
+          │───────────────────────────│
+          │ branch_id (PK)            │
+          │ manager_id                │
+          │ branch_address            │
+          │ contact_no                │
+          └─────────────┬─────────────┘
+                        │ 1 ────∞
+                        │
+                        │
+          ┌─────────────▼─────────────┐
+          │        Employee           │
+          │───────────────────────────│
+          │ emp_id (PK)               │
+          │ emp_name                  │
+          │ position                  │
+          │ salary                    │
+          │ branch_id (FK)            │ → Branch.branch_id
+          └─────────────┬─────────────┘
+                        │ 1 ────∞
+                        │
+                        │
+          ┌─────────────▼─────────────┐
+          │       Issued_Status       │
+          │───────────────────────────│
+          │ issued_id (PK)            │
+          │ issued_member_id (FK)     │ → Members.member_id
+          │ issued_book_name          │
+          │ issued_date               │
+          │ issued_book_isbn (FK)     │ → Books.isbn
+          │ issued_emp_id (FK)        │ → Employee.emp_id
+          └─────────────┬─────────────┘
+                        │ 1 ────1
+                        │
+                        │
+          ┌─────────────▼─────────────┐
+          │       Return_Status       │
+          │───────────────────────────│
+          │ return_id (PK)            │
+          │ issued_id (FK)            │ → Issued_Status.issued_id
+          │ return_book_name          │
+          │ return_date               │
+          │ return_book_isbn          │
+          └───────────────────────────┘
+
+
+          ┌───────────────────────────┐
+          │          Books            │
+          │───────────────────────────│
+          │ isbn (PK)                 │
+          │ book_title                │
+          │ category                  │
+          │ rental_price              │
+          │ status                    │
+          │ author                    │
+          │ publisher                 │
+          └───────────────────────────┘
+
+
+          ┌───────────────────────────┐
+          │         Members           │
+          │───────────────────────────│
+          │ member_id (PK)            │
+          │ member_name               │
+          │ member_address            │
+          │ reg_date                  │
+          └───────────────────────────┘
+
 
 ## CTAS (Create Table As Select)
 Generated summary tables such as:
