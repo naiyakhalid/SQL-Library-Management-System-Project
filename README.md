@@ -90,13 +90,13 @@ This SQL Library Management System is designed to manage a library’s branches,
 ## CTAS (Create Table As Select)
 Generated summary tables such as:
 
-''' sql
+```sql
 SELECT Books.isbn, Books.book_title, COUNT(issued_status.issued_id) AS Issued_books 
 INTO book_issued_cnt
 FROM Books
-JOIN issued_status ON Books.isbn = issued_status.issued_book_isbn
+JOIN issued_status ON Books.isbn = issued_book_isbn
 GROUP BY Books.isbn, Books.book_title;
-'''
+```
 
 Output: A summary of books and their total issued counts.
 
