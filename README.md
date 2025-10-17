@@ -1,5 +1,12 @@
 # SQL-Library-Management-System-Project
 
+## 🧑‍💻 Author
+**Naiya Khalid**  
+📩 [naiyakhalid@gmail.com](mailto:naiyakhalid@gmail.com)  
+🌐 [LinkedIn](https://www.linkedin.com/in/naiya-khalid-510981130/)  
+🌐 [GitHub](https://github.com/naiyakhalid)  
+🌐 [Kaggle](https://www.kaggle.com/naiyakhalid)
+
 ## Project Overview
 This SQL Library Management System is designed to manage a library’s branches, employees, books, members, issued and returned books efficiently.
 - It demonstrates key SQL concepts including:
